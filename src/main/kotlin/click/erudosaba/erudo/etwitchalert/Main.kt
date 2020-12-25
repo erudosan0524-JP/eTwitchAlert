@@ -4,11 +4,17 @@ import org.bukkit.plugin.java.JavaPlugin
 
 class Main : JavaPlugin() {
 
+    private val pluginName = "eTwitchAlert"
+
     override fun onDisable() {
-        super.onDisable()
+        logger.info("Disabled $pluginName")
     }
 
     override fun onEnable() {
-        super.onEnable()
+        logger.info("Enabled $pluginName")
+
+        var config = Config(this)
+
+        var scheduler = AlertScheduler(this)
     }
 }
